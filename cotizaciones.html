@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Cotizaciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white flex h-screen">
+    <aside class="w-64 bg-orange-400 text-black font-bold border-r-2 rounded-r-xl border-orange-600 shadow-2xl shadow-black/70 z-50">
+        <div class="p-4 flex items-center justify-center border-b-2 border-orange-700">
+            <h1 class="text-xl font-bold mx-1"><i class="fa-solid fa-bars mr-3 ml-3 text-red-800"></i> <a href="menu.html">Menu Principal</a></h1>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a href="inventario.html" class="flex items-center  p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-box mr-3 text-red-800"></i> Inventario
+                    </a>
+                </li>
+                <li>
+                    <a href="Materiales.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-boxes mr-3 text-red-800"></i> Materiales
+                    </a>
+                </li>
+                <li>
+                    <a href="contabilidad.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-calculator mr-3 text-red-800"></i> Contabilidad
+                    </a>
+                </li>
+                <li>
+                    <a href="catalogo.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-wine-bottle mr-3 text-red-800"></i> Catálogo de Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="cotizaciones.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-file-invoice-dollar mr-3  text-red-800"></i> Cotizaciones
+                    </a>
+                </li>
+                <li>
+                    <a href="gestionEmpleados.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-users mr-3 text-red-800"></i> Empleados
+                    </a>
+                </li>
+                <li>
+                    <a href="gestionClientes.html" class="flex items-center p-2  rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-user-tie mr-3 text-red-800"></i> Clientes
+                    </a>
+                </li>
+                <li>
+                    <a href="Proveedores.html" class="flex items-center p-2 rounded hover:bg-orange-700 transition">
+                        <i class="fas fa-truck mr-3 text-red-800"></i> Proveedores
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="bg-orange-50 shadow-sm">
+            <div class="flex justify-between items-center p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Historial de Cotizaciones</h2>
+                <div class="flex items-center space-x-4">
+                    <button class="flex items-center space-x-2 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition">
+                        <i class="fas fa-user"></i>
+                        <span>Administrador</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-auto p-6 bg-orange-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
+                    <div class="relative w-96">
+                        <input type="text" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Buscar por cliente o código...">
+                        <div class="absolute left-3 top-2.5 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <select class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <option>Últimos 30 días</option>
+                            <option>Última semana</option>
+                            <option>Últimos 3 meses</option>
+                            <option>Último año</option>
+                            <option>Todo el historial</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listado de cotizaciones -->
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-orange-200">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Código</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Cliente</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Fecha</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Bebidas</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Total</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Cotización 1 -->
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="font-medium text-orange-700">ID-009</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Luis Sandobal</div>
+                                        <div class="text-sm text-gray-500">320920424</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm">15/07/2025</div>
+                                        <div class="text-sm text-gray-500">Válida hasta: 30/07/2025</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm">
+                                            <span class="font-medium">3 tipos de bebidas</span>
+                                            <ul class="list-disc list-inside text-gray-500 text-xs mt-1">
+                                                <li>Matrona classica 20 uds</li>
+                                                <li>Matrona Durazno 10 uds</li>
+                                                <li>Matrona Hierbabuena 20 uds</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                                        $210.000
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-green-500 font-semibold">APROBADA</span>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="font-medium text-orange-700">ID-016</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Cristian Perez</div>
+                                        <div class="text-sm text-gray-500">3102848238</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm">18/07/2025</div>
+                                        <div class="text-sm text-gray-500">Válida hasta: 01/08/2025</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm">
+                                            <span class="font-medium">2 tipos de bebidas</span>
+                                            <ul class="list-disc list-inside text-gray-500 text-xs mt-1">
+                                                <li>Matrona Durazno 100 uds</li>
+                                                <li>Matrona Classica 50 uds</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                                        $450,000
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-red-600 font-semibold">RECHAZADA</span>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <div class="flex justify-end items-end h-20 w-full bg-orange-50 p-4"> 
+            <button class="flex items-center space-x-2 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition">
+               <a href="menu.html">
+                <i class="fas fa-right-from-bracket"></i><span>Salir</span></a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
